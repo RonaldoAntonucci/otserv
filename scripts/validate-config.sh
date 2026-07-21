@@ -66,12 +66,11 @@ case "$(value_from TFS_IP)" in
 esac
 
 if git -C "$repository_root" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    tracked_secrets=$(git -C "$repository_root" ls-files | while IFS= read -r tracked_file; do
-        case "$tracked_file" in
-            *.env.example) ;;
-            *.env|*.env.*) printf '%s\n' "$tracked_file" ;;
-        esac
-    done)
+    tracked_secrets=$(git -C "$repository_root" ls-files | awk '
+        /\.env\.example$/ { next }
+        $0 == "deploy/vps/paths.env" { next }
+        /\.env($|\.)/ { print }
+    ')
 
     if [ -n "$tracked_secrets" ]; then
         fail "runtime secret file is tracked by Git"

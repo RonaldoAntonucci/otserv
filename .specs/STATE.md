@@ -74,13 +74,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-010
+- **Decision**: O instalador nativo receberá um arquivo de ambiente real, preservará configuração e segredos existentes e ativará releases imutáveis por troca atômica de symlink.
+- **Reason**: Reexecuções e falhas de compilação não podem substituir credenciais, dados ou o binário ativo da VPS.
+- **Trade-off**: Credenciais existentes incompatíveis precisam ser corrigidas explicitamente pelo operador; o instalador não redefine senhas nem remove releases antigos.
+- **Scope**: Instalação nativa, inicialização do MariaDB e publicação de releases na VPS.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T8 completa; T9 próxima
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 aprovada com 10/10 contratos
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:386`
-- **Next step**: adicionar o instalador nativo idempotente para Ubuntu 24.04
+- **Phase / Task**: Execute — T9 completa; T10 próxima
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 aprovada com 16/16 contratos
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:421`
+- **Next step**: adicionar o smoke test nativo da VPS com rollback verificável
 - **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: nenhum após o commit atômico da T8
+- **Uncommitted files**: nenhum após o commit atômico da T9
 - **Branch**: `main`

@@ -381,6 +381,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T9: Add the Idempotent Native VPS Installer
 
+**Status**: Complete
+
 **What**: Add the Ubuntu 24.04 installer that provisions dependencies, MariaDB, the dedicated user, pinned TFS release and service without destroying an existing installation.
 
 **Where**: `deploy/vps/install.sh`, `tests/installer-contract.sh`, `Makefile`
@@ -399,14 +401,14 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Installer refuses non-Ubuntu-24.04 or unsupported architecture before mutation.
-- [ ] Package list matches pinned TFS CMake requirements and MariaDB 10.11 availability.
-- [ ] Build runs with one parallel job and activates only a successful immutable release.
-- [ ] Database/user/schema initialization is idempotent and never overwrites existing secrets or data.
-- [ ] Re-running against a fixture preserves an existing DB marker and active release on simulated build failure.
-- [ ] Shell/static checks find no unquoted secrets or unsafe broad destructive targets.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 16 installer contract tests pass.
+- [x] Installer refuses non-Ubuntu-24.04 or unsupported architecture before mutation.
+- [x] Package list matches pinned TFS CMake requirements and MariaDB 10.11 availability.
+- [x] Build runs with one parallel job and activates only a successful immutable release.
+- [x] Database/user/schema initialization is idempotent and never overwrites existing secrets or data.
+- [x] Re-running against a fixture preserves an existing DB marker and active release on simulated build failure.
+- [x] Shell/static checks find no unquoted secrets or unsafe broad destructive targets.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 16 installer contract tests pass.
 
 **Tests**: contract
 
