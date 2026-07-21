@@ -58,13 +58,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-008
+- **Decision**: O bootstrap suportará somente MariaDB 10.11; MySQL continua tecnicamente compatível com o conector do TFS, mas não faz parte da matriz validada.
+- **Reason**: Uma única implementação de banco reduz divergência entre Docker no desenvolvimento e o serviço nativo da VPS.
+- **Trade-off**: Trocar para Oracle MySQL exigirá uma feature própria para adaptar instalação, imagem e gates operacionais.
+- **Scope**: Banco de desenvolvimento, instalação nativa, documentação e testes.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T6 completa; T7 próxima
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 aprovada com 6/6 integrações
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:304`
-- **Next step**: adicionar a stack Compose de desenvolvimento com MariaDB 10.11 e smoke test isolado
+- **Phase / Task**: Execute — T7 completa; T8 próxima
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 aprovada com 18/18 integrações
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:345`
+- **Next step**: adicionar o bundle nativo da VPS e validar a unidade `systemd` do TFS
 - **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: nenhum após o commit atômico da T6
+- **Uncommitted files**: nenhum após o commit atômico da T7
 - **Branch**: `main`

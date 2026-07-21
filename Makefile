@@ -8,6 +8,7 @@ test-static:
 
 test-dev:
 	sh tests/docker-build.sh
+	sh scripts/smoke-development.sh
 
 test-vps:
 	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=vps

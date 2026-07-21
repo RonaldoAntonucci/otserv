@@ -9,3 +9,4 @@ sources/
 *.env.*
 !.env.example
 !*.env.example
+tests/.compose-test.*

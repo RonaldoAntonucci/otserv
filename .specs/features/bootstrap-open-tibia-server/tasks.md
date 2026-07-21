@@ -303,6 +303,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T7: Add and Verify the Development Compose Stack
 
+**Status**: Complete
+
 **What**: Add the development-only TFS/MariaDB Compose stack and its complete smoke test covering initialization, readiness, persistence, datapack and failure behavior.
 
 **Where**: `compose.yaml`, `scripts/smoke-development.sh`, `tests/docker-bootstrap.sh`, `Makefile`
@@ -321,15 +323,15 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] MariaDB uses a named volume and has no published host port.
-- [ ] TFS waits on MariaDB `service_healthy` and publishes only `7171`/`7172`.
-- [ ] Empty-volume startup imports the official schema exactly once.
-- [ ] Restart preserves a unique test marker and does not destructively reimport schema.
-- [ ] TFS remains active, ports listen, official map/scripts load and logs show no fatal startup error.
-- [ ] Scratch missing secret, unhealthy DB and missing map mutations are all detected.
-- [ ] Test cleanup preserves normal developer data unless an explicit isolated test project/volume is used.
-- [ ] Gate passes: `make test-dev`.
-- [ ] Test count: exactly 18 development integration tests pass.
+- [x] MariaDB uses a named volume and has no published host port.
+- [x] TFS waits on MariaDB `service_healthy` and publishes only `7171`/`7172`.
+- [x] Empty-volume startup imports the official schema exactly once.
+- [x] Restart preserves a unique test marker and does not destructively reimport schema.
+- [x] TFS remains active, ports listen, official map/scripts load and logs show no fatal startup error.
+- [x] Scratch missing secret, unhealthy DB and missing map mutations are all detected.
+- [x] Test cleanup preserves normal developer data unless an explicit isolated test project/volume is used.
+- [x] Gate passes: `make test-dev`.
+- [x] Test count: exactly 18 development integration tests pass.
 
 **Tests**: integration
 

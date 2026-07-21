@@ -1,0 +1,52 @@
+services:
+  db:
+    image: mariadb:10.11@sha256:be981e4113326ada8d6004174dd09eeaefc03094037f811182a52d4f2e737350
+    environment:
+      MARIADB_DATABASE: ${MYSQL_DATABASE:?MYSQL_DATABASE is required}
+      MARIADB_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD is required}
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+      MARIADB_USER: ${MYSQL_USER:?MYSQL_USER is required}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./server/schema.sql:/docker-entrypoint-initdb.d/001-schema.sql:ro
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >-
+          mariadb --protocol=tcp --host=127.0.0.1
+          --user="$${MARIADB_USER}" --password="$${MARIADB_PASSWORD}"
+          "$${MARIADB_DATABASE}" --execute="SELECT 1" >/dev/null 2>&1
+      interval: 2s
+      timeout: 2s
+      retries: 30
+      start_period: 10s
+    stop_grace_period: 30s
+
+  tfs:
+    image: otserv-tfs:dev
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: docker/tfs.Dockerfile
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:?MYSQL_DATABASE is required}
+      MYSQL_HOST: ${MYSQL_HOST:?MYSQL_HOST is required}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?MYSQL_PASSWORD is required}
+      MYSQL_PORT: ${MYSQL_PORT:?MYSQL_PORT is required}
+      MYSQL_SOCK: ${MYSQL_SOCK-}
+      MYSQL_USER: ${MYSQL_USER:?MYSQL_USER is required}
+      TFS_GAME_PORT: ${TFS_GAME_PORT:?TFS_GAME_PORT is required}
+      TFS_IP: ${TFS_IP:?TFS_IP is required}
+      TFS_LOGIN_PORT: ${TFS_LOGIN_PORT:?TFS_LOGIN_PORT is required}
+      TFS_MAP_NAME: ${TFS_MAP_NAME:?TFS_MAP_NAME is required}
+      TFS_STATUS_PORT: ${TFS_STATUS_PORT:?TFS_STATUS_PORT is required}
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${TFS_LOGIN_PORT:?TFS_LOGIN_PORT is required}:7171"
+      - "${TFS_GAME_PORT:?TFS_GAME_PORT is required}:7172"
+    stop_grace_period: 30s
+
+volumes:
+  db_data:
