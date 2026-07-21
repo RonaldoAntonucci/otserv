@@ -458,6 +458,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T11: Install and Validate the Native Stack on the VPS
 
+**Status**: Complete
+
 **What**: Execute the approved installer on VPS `1826871`, run the native e2e gate twice and record sanitized evidence.
 
 **Where**: VPS `1826871`; `docs/vps-validation.md`
@@ -477,14 +479,14 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] SSH/terminal execution authority is available; otherwise this task stops without VPS mutation.
-- [ ] Installer succeeds on Ubuntu 24.04 and activates the pinned TFS release.
-- [ ] `make test-vps` passes before and after a service restart.
-- [ ] A second installer run preserves DB marker, secrets and active data.
-- [ ] MariaDB listens only locally and TFS listens on configured ports.
-- [ ] Sanitized evidence records revisions, service states, test counts and timestamps without credentials/IP secrets beyond already public VPS metadata.
-- [ ] Gate passes: `make test-vps` twice.
-- [ ] Test count: exactly 14 native e2e assertions pass on each run.
+- [x] SSH/terminal execution authority is available; otherwise this task stops without VPS mutation.
+- [x] Installer succeeds on Ubuntu 24.04 and activates the pinned TFS release.
+- [x] `make test-vps` passes before and after a service restart.
+- [x] A second installer run preserves DB marker, secrets and active data.
+- [x] MariaDB listens only locally and TFS listens on configured ports.
+- [x] Sanitized evidence records revisions, service states, test counts and timestamps without credentials/IP secrets beyond already public VPS metadata.
+- [x] Gate passes: `make test-vps` twice.
+- [x] Test count: exactly 14 native e2e assertions pass on each run.
 
 **Tests**: e2e
 

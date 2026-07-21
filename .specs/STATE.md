@@ -101,10 +101,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T11 em andamento
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 aprovada com 12/12 contratos e fixture 14/14
-- **In-progress** (file:line): `deploy/vps/install.sh:310`
-- **Next step**: publicar a correção de permissões, reaplicar o instalador na VPS `1826871` e executar o gate nativo duas vezes
-- **Blockers**: nenhum; SSH root não interativo validado
-- **Uncommitted files**: nenhum após o commit atômico da correção de permissões
+- **Phase / Task**: Execute — T12 pronta para iniciar
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 validada com dois gates 14/14, reinstalação idempotente e exposição externa segura
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:497`
+- **Next step**: executar T12, publicar o runbook reproduzível e então despachar o Verifier independente obrigatório
+- **Blockers**: nenhum
+- **Uncommitted files**: nenhum após o commit atômico da T11
 - **Branch**: `main`
