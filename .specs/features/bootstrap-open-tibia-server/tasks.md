@@ -189,9 +189,11 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T4: Fork and Pin OTClient
 
+**Status**: Complete
+
 **What**: Create the true OTClient fork and register it as the `client/` submodule pinned to tag `4.1` commit `99d43bd6559841ee684e35082da3ea9a360d0e16`, extending repository contract assertions.
 
-**Where**: GitHub `RonaldoAntonucci/otclient`, `.gitmodules`, `client/`, `tests/repository-structure.sh`
+**Where**: GitHub `RonaldoAntonucci/otclient`, `.gitmodules`, `client/`, `scripts/validate-repositories.sh`, `tests/repository-structure-contract.sh`
 
 **Depends on**: T3
 
@@ -207,13 +209,13 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] GitHub reports `RonaldoAntonucci/otclient` as a fork of `opentibiabr/otclient`.
-- [ ] `client/` points to the user's fork and exact SHA `99d43bd6559841ee684e35082da3ea9a360d0e16`.
-- [ ] The local submodule has an `upstream` remote for `opentibiabr/otclient`.
-- [ ] The pinned README still declares TFS 1.6/protocol 13.10 compatibility.
-- [ ] Contract tests reject a scratch wrong client owner, URL, SHA or missing compatibility statement.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 12 repository contract tests pass.
+- [x] GitHub reports `RonaldoAntonucci/otclient` as a fork of `opentibiabr/otclient`.
+- [x] `client/` points to the user's fork and exact SHA `99d43bd6559841ee684e35082da3ea9a360d0e16`.
+- [x] The local submodule has an `upstream` remote for `opentibiabr/otclient`.
+- [x] The pinned README still declares TFS 1.6/protocol 13.10 compatibility.
+- [x] Contract tests reject a scratch wrong client owner, URL, SHA or missing compatibility statement.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 12 repository contract tests pass.
 
 **Tests**: contract/integration
 

@@ -6,6 +6,7 @@ RUN apt-get update \
     && apt-get install --yes --no-install-recommends ca-certificates git make \
     && git config --system --add safe.directory /workspace \
     && git config --system --add safe.directory /workspace/server \
+    && git config --system --add safe.directory /workspace/client \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace

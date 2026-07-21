@@ -61,10 +61,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T3 pronta para commit
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 aprovada com 8/8 contratos e relação de fork confirmada
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:151`
-- **Next step**: registrar o commit atômico da T3 e iniciar T4, criando o fork independente do OTClient
+- **Phase / Task**: Execute — T4 pronta para commit
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 aprovada com 12/12 contratos e relação de fork confirmada
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:188`
+- **Next step**: registrar o commit atômico da T4 e iniciar T5, definindo o contrato compartilhado de configuração
 - **Blockers**: deploy nativo futuro requer terminal/SSH
 - **Uncommitted files**: artefatos da T3 até o commit atômico
 - **Branch**: `main`
