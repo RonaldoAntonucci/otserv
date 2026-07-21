@@ -498,7 +498,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T12: Publish the Reproducible Bootstrap Runbook
 
-**Status**: Partial — validation gap tracked by T14
+**Status**: Complete
 
 **What**: Complete the README/runbook for cloning with submodules, Docker development, native VPS installation, logs, recovery and all approved gates.
 
@@ -525,7 +525,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 - [x] No command references missing files, wrong repository names or unimplemented behavior.
 - [x] Full local gate passes: `make verify`.
 - [x] Remote evidence from T11 remains passing and linked.
-- [x] Expected aggregate count: 92 local assertions plus 14 native e2e assertions, with no silent deletion.
+- [x] Expected aggregate count: 94 local assertions plus 14 native e2e assertions, with no silent deletion.
 
 **Tests**: none — documentation/config; full build gate
 
@@ -565,7 +565,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T14: Require an Active TFS Service Before Installer Readiness
 
-**Status**: Pending
+**Status**: Complete
 
 **What**: Start and verify the native TFS service before declaring the installation ready, and align the runbook/counts.
 
@@ -577,11 +577,11 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Installer enables and starts `tfs.service`, then verifies it is active.
-- [ ] Start failure returns non-zero and cannot reach the readiness message.
-- [ ] The documented clean-install sequence goes directly from installer to smoke.
-- [ ] Local gate passes with exactly 18 installer contracts and 94 aggregate assertions.
-- [ ] Reapplying the installer on the VPS is idempotent and `make test-vps` passes 14/14.
+- [x] Installer enables and starts `tfs.service`, then verifies it is active.
+- [x] Start failure returns non-zero and cannot reach the readiness message.
+- [x] The documented clean-install sequence goes directly from installer to smoke.
+- [x] Local gate passes with exactly 18 installer contracts and 94 aggregate assertions.
+- [x] Reapplying the installer on the VPS is idempotent and `make test-vps` passes 14/14.
 
 **Tests**: contract + retained native e2e
 

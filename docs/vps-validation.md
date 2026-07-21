@@ -46,6 +46,8 @@ Each run verified Ubuntu 24.04/amd64, operational systemd, the exact pinned rele
 
 A third confirmation at `2026-07-21T20:10:13Z`, after the UFW rules were applied, also passed `14/14` without modifying runtime state.
 
+After the independent verifier identified that a clean installer could print readiness without starting TFS, the corrected installer was reapplied at `2026-07-21T20:43:24Z`. Canonical VPS configuration validation completed before package/service mutation, the existing release and database were reused, and the installer confirmed `tfs.service` active before printing readiness. The immediately following read-only smoke passed `14/14`.
+
 ## Service and network state
 
 | Check | Evidence |

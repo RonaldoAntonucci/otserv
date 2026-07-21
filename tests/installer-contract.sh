@@ -327,4 +327,31 @@ if [ "$installer_loaded" = true ] && command -v initialize_database >/dev/null 2
 fi
 assert_equal true "$contract" "existing schema sentinel prevents destructive re-import" || true
 
+cat >"$MOCK_BIN/systemctl" <<'EOF'
+#!/bin/sh
+set -eu
+printf '%s\n' "$*" >>"$CALL_LOG"
+if [ "$*" = "is-active --quiet tfs.service" ] && [ "${MOCK_TFS_INACTIVE:-false}" = true ]; then
+    exit 3
+fi
+EOF
+chmod 0755 "$MOCK_BIN/systemctl"
+
+contract=false
+: >"$CALL_LOG"
+if [ "$installer_loaded" = true ] && command -v start_tfs_service >/dev/null 2>&1 &&
+    PATH="$MOCK_BIN:$PATH" CALL_LOG="$CALL_LOG" start_tfs_service >/dev/null 2>&1 &&
+    [ "$(cat "$CALL_LOG")" = "enable --now tfs.service
+is-active --quiet tfs.service" ]; then
+    : >"$CALL_LOG"
+    start_line=$(grep -nF 'start_tfs_service' "$INSTALLER" | tail -n 1 | cut -d: -f1)
+    ready_line=$(grep -nF "printf 'Installation ready." "$INSTALLER" | cut -d: -f1)
+    if ! PATH="$MOCK_BIN:$PATH" CALL_LOG="$CALL_LOG" MOCK_TFS_INACTIVE=true \
+        start_tfs_service >/dev/null 2>&1 &&
+        [ -n "$start_line" ] && [ -n "$ready_line" ] && [ "$start_line" -lt "$ready_line" ]; then
+        contract=true
+    fi
+fi
+assert_equal true "$contract" "installer requires active TFS before declaring readiness" || true
+
 finish_tests

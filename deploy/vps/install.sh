@@ -363,6 +363,11 @@ install_service_bundle() {
     install -o root -g root -m 0644 "$project_root/deploy/vps/tfs.service" /etc/systemd/system/tfs.service
 }
 
+start_tfs_service() {
+    systemctl enable --now tfs.service || fail "cannot enable and start tfs.service"
+    systemctl is-active --quiet tfs.service || fail "tfs.service did not become active"
+}
+
 main() {
     [ "$#" -eq 1 ] || fail "usage: $0 /path/to/real-otserv.env"
     environment_source=$1
@@ -401,8 +406,8 @@ main() {
         "$project_root/deploy/vps/config-loader.lua"
 
     systemctl daemon-reload
-    systemctl enable tfs.service
-    printf 'Installation ready. Run: systemctl start tfs.service\n'
+    start_tfs_service
+    printf 'Installation ready. tfs.service is active.\n'
 }
 
 if [ "${OTSERV_INSTALLER_SOURCE_ONLY:-false}" != true ]; then

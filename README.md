@@ -30,9 +30,9 @@ git submodule update --init --recursive
 ## Gates
 
 ```sh
-make test-static  # 68 contratos, executados em Docker
+make test-static  # 70 contratos, executados em Docker
 make test-dev     # 24 integrações, executadas em Docker
-make verify       # gate local completo: 92 verificações
+make verify       # gate local completo: 94 verificações
 sudo make test-vps  # somente na VPS nativa: 14 verificações
 ```
 

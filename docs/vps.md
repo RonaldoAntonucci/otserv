@@ -2,7 +2,7 @@
 
 ## Contrato suportado
 
-O instalador suporta somente Ubuntu 24.04 LTS `amd64`, executado como root. Ele instala MariaDB 10.11 e as dependências de build, compila o TFS fixado com um job, publica releases imutáveis em `/opt/otserv/releases` e gerencia o serviço `tfs.service`.
+O instalador suporta somente Ubuntu 24.04 LTS `amd64`, executado como root. Ele instala MariaDB 10.11 e as dependências de build, compila o TFS fixado com um job, publica releases imutáveis em `/opt/otserv/releases`, habilita/inicia `tfs.service` e só declara prontidão depois de confirmar que o serviço está ativo.
 
 Docker não é usado na VPS. O acesso autorizado por SSH é obrigatório: o painel/MCP da Hostinger permite inspecionar e controlar a máquina, mas não substitui o terminal root necessário para instalar e validar o runtime.
 
@@ -29,6 +29,8 @@ sudo make test-vps
 ```
 
 O `INSERT` idempotente cria o marcador exigido pelo primeiro smoke sem expor a credencial da aplicação. Depois disso, o smoke é estritamente somente leitura. Consulte a [evidência validada](vps-validation.md) para a prova de preservação.
+
+Nenhum `systemctl start` adicional é necessário entre o instalador e o smoke. Se o TFS não ficar ativo, o instalador termina com erro e não imprime a mensagem de prontidão.
 
 Abra somente as portas do protocolo e mantenha MariaDB sem regra pública:
 

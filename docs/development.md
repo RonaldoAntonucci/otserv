@@ -59,7 +59,7 @@ make test-dev
 make verify
 ```
 
-`make test-static` executa 68 contratos dentro da imagem de testes. `make test-dev` compila a imagem `linux/amd64` fixada e executa 24 integrações em projetos/volumes Docker isolados. `make verify` executa os dois gates, totalizando 92 verificações locais.
+`make test-static` executa 70 contratos dentro da imagem de testes. `make test-dev` compila a imagem `linux/amd64` fixada e executa 24 integrações em projetos/volumes Docker isolados. `make verify` executa os dois gates, totalizando 94 verificações locais.
 
 Os testes de desenvolvimento limpam somente seus próprios projetos e volumes isolados. O volume normal criado pelos comandos acima não é removido.
 
