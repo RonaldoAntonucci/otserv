@@ -115,9 +115,11 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T2: Add the Containerized Test Gate Harness
 
+**Status**: Complete
+
 **What**: Add the Docker-backed assertion runner and `Makefile` target that execute static contract tests without installing test tools on macOS.
 
-**Where**: `Makefile`, `docker/test.Dockerfile`, `tests/run-static.sh`, `tests/lib/assert.sh`
+**Where**: `Makefile`, `docker/test.Dockerfile`, `tests/run-static.sh`, `tests/harness-contract.sh`, `tests/lib/assert.sh`
 
 **Depends on**: T1
 
@@ -133,12 +135,12 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] `make test-static` runs entirely inside a pinned Ubuntu-based test image.
-- [ ] Assertion output reports explicit pass/fail counts and exits non-zero on failure.
-- [ ] A deliberate scratch assertion failure is detected by the harness.
-- [ ] Placeholder commands never report success for unimplemented suites.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 4 harness contract tests pass.
+- [x] `make test-static` runs entirely inside a pinned Ubuntu-based test image.
+- [x] Assertion output reports explicit pass/fail counts and exits non-zero on failure.
+- [x] A deliberate scratch assertion failure is detected by the harness.
+- [x] Placeholder commands never report success for unimplemented suites.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 4 harness contract tests pass.
 
 **Tests**: contract
 

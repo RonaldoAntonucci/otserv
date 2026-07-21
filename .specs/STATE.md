@@ -61,10 +61,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T1 em gate final
-- **Completed**: Specify, Design, plano de tarefas, estratégia de testes e ferramentas aprovados; artefatos da T1 preparados
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:79`
-- **Next step**: criar e publicar o commit atômico da T1, validar cinco assertivas e iniciar T2
+- **Phase / Task**: Execute — T2 pronta para commit
+- **Completed**: T1 concluída no commit `e31cc663505218ff4f042deb76bf30c28844ee58`; T2 aprovada com 4/4 contratos
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:114`
+- **Next step**: registrar o commit atômico da T2 e iniciar T3, criando o fork do TFS
 - **Blockers**: deploy nativo futuro requer terminal/SSH; MCP Hostinger não executa comandos no sistema operacional
-- **Uncommitted files**: `.specs/STATE.md`, `.specs/features/bootstrap-open-tibia-server/spec.md`, `.specs/features/bootstrap-open-tibia-server/context.md`, `.specs/features/bootstrap-open-tibia-server/design.md`, `.specs/features/bootstrap-open-tibia-server/tasks.md`
+- **Uncommitted files**: artefatos da T2 até o commit atômico
 - **Branch**: `main`

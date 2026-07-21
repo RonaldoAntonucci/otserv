@@ -150,9 +150,9 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 | BOOT-03 | P1: Banco e inicialização | Tasks | In Tasks |
 | BOOT-04 | P1: Datapack e servidor pronto | Tasks | In Tasks |
 | BOOT-05 | P2: Fork do cliente preparado | Tasks | In Tasks |
-| BOOT-06 | Edge cases: validação e falhas | Tasks | In Tasks |
+| BOOT-06 | Edge cases: validação e falhas | Execute | In Progress |
 | BOOT-07 | Edge cases: segurança e persistência | Tasks | In Tasks |
-| BOOT-08 | Edge cases: observabilidade e prontidão | Tasks | In Tasks |
+| BOOT-08 | Edge cases: observabilidade e prontidão | Execute | In Progress |
 
 **Coverage:** 8 total, 8 mapped to tasks, 0 unmapped.
 
