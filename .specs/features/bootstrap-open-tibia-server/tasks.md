@@ -498,6 +498,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T12: Publish the Reproducible Bootstrap Runbook
 
+**Status**: Complete
+
 **What**: Complete the README/runbook for cloning with submodules, Docker development, native VPS installation, logs, recovery and all approved gates.
 
 **Where**: `README.md`, `docs/development.md`, `docs/vps.md`, `Makefile`
@@ -516,14 +518,14 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] A clean clone command initializes both pinned submodules.
-- [ ] Development instructions use Docker only and document `make test-static`, `make test-dev` and `make verify`.
-- [ ] VPS instructions use native packages/services only and document `make test-vps` plus the SSH limitation.
-- [ ] Log, restart, update, rollback and safe data-preservation commands match implemented artifacts.
-- [ ] No command references missing files, wrong repository names or unimplemented behavior.
-- [ ] Full local gate passes: `make verify`.
-- [ ] Remote evidence from T11 remains passing and linked.
-- [ ] Expected aggregate count: 64 local assertions plus 14 native e2e assertions, with no silent deletion.
+- [x] A clean clone command initializes both pinned submodules.
+- [x] Development instructions use Docker only and document `make test-static`, `make test-dev` and `make verify`.
+- [x] VPS instructions use native packages/services only and document `make test-vps` plus the SSH limitation.
+- [x] Log, restart, update, rollback and safe data-preservation commands match implemented artifacts.
+- [x] No command references missing files, wrong repository names or unimplemented behavior.
+- [x] Full local gate passes: `make verify`.
+- [x] Remote evidence from T11 remains passing and linked.
+- [x] Expected aggregate count: 92 local assertions plus 14 native e2e assertions, with no silent deletion.
 
 **Tests**: none — documentation/config; full build gate
 

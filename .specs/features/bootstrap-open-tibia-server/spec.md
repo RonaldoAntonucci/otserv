@@ -6,11 +6,11 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 
 ## Goals
 
-- [ ] Criar a estrutura GitHub do projeto preservando os forks dos dois upstreams.
-- [ ] Compilar o TFS `v1.6` em Docker no desenvolvimento e nativamente na VPS para protocolo 13.10.
-- [ ] Inicializar MariaDB e o schema do TFS de forma persistente em ambos os ambientes.
-- [ ] Subir o servidor com o datapack oficial e comprovar que está pronto para receber conexões.
-- [ ] Preparar o fork do OTClient compatível para a próxima etapa de conexão.
+- [x] Criar a estrutura GitHub do projeto preservando os forks dos dois upstreams.
+- [x] Compilar o TFS `v1.6` em Docker no desenvolvimento e nativamente na VPS para protocolo 13.10.
+- [x] Inicializar MariaDB e o schema do TFS de forma persistente em ambos os ambientes.
+- [x] Subir o servidor com o datapack oficial e comprovar que está pronto para receber conexões.
+- [x] Preparar o fork do OTClient compatível para a próxima etapa de conexão.
 
 ## Out of Scope
 
@@ -145,14 +145,14 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 
 | Requirement ID | Story | Phase | Status |
 | --- | --- | --- | --- |
-| BOOT-01 | P1: Estrutura de código-fonte | Execute | In Progress |
-| BOOT-02 | P1: Build reproduzível | Execute | In Progress |
-| BOOT-03 | P1: Banco e inicialização | Execute | In Progress |
-| BOOT-04 | P1: Datapack e servidor pronto | Tasks | In Tasks |
-| BOOT-05 | P2: Fork do cliente preparado | Execute | In Progress |
-| BOOT-06 | Edge cases: validação e falhas | Execute | In Progress |
-| BOOT-07 | Edge cases: segurança e persistência | Execute | In Progress |
-| BOOT-08 | Edge cases: observabilidade e prontidão | Execute | In Progress |
+| BOOT-01 | P1: Estrutura de código-fonte | Execute | Complete |
+| BOOT-02 | P1: Build reproduzível | Execute | Complete |
+| BOOT-03 | P1: Banco e inicialização | Execute | Complete |
+| BOOT-04 | P1: Datapack e servidor pronto | Execute | Complete |
+| BOOT-05 | P2: Fork do cliente preparado | Execute | Complete |
+| BOOT-06 | Edge cases: validação e falhas | Execute | Complete |
+| BOOT-07 | Edge cases: segurança e persistência | Execute | Complete |
+| BOOT-08 | Edge cases: observabilidade e prontidão | Execute | Complete |
 
 **Coverage:** 8 total, 8 mapped to tasks, 0 unmapped.
 
@@ -160,8 +160,8 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 
 ## Success Criteria
 
-- [ ] Três repositórios existem na conta GitHub e nenhuma credencial foi versionada.
-- [ ] O build Docker do TFS `v1.6` conclui em checkout limpo.
-- [ ] MariaDB e TFS ficam saudáveis via Docker Compose local e serviços nativos na VPS, com persistência após restart.
-- [ ] O TFS carrega o datapack oficial e mantém as portas configuradas disponíveis.
-- [ ] O procedimento Docker é repetível no macOS e o instalador nativo é idempotente no Ubuntu 24.04.
+- [x] Três repositórios existem na conta GitHub e nenhuma credencial foi versionada.
+- [x] O build Docker do TFS `v1.6` conclui em checkout limpo.
+- [x] MariaDB e TFS ficam saudáveis via Docker Compose local e serviços nativos na VPS, com persistência após restart.
+- [x] O TFS carrega o datapack oficial e mantém as portas configuradas disponíveis.
+- [x] O procedimento Docker é repetível no macOS e o instalador nativo é idempotente no Ubuntu 24.04.

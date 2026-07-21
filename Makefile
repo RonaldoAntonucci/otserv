@@ -13,8 +13,7 @@ test-dev:
 test-vps:
 	sh scripts/smoke-vps.sh
 
-verify:
-	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=verification
+verify: test-static test-dev
 
 test-placeholder:
 	@echo "ERROR: $(SUITE) test suite is not implemented" >&2
