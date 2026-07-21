@@ -227,6 +227,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T5: Define and Validate the Shared Configuration Contract
 
+**Status**: Complete
+
 **What**: Add ignored secret rules, safe environment examples, the shared TFS `config.lua` and a validator covering development and VPS inputs.
 
 **Where**: `.gitignore`, `env/development.env.example`, `deploy/vps/otserv.env.example`, `docker/config.lua`, `deploy/vps/config.lua`, `scripts/validate-config.sh`, `tests/config-contract.sh`
@@ -245,13 +247,13 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Examples contain names/placeholders only and no usable credentials.
-- [ ] Development uses `MYSQL_HOST=db`; VPS uses loopback/local MariaDB.
-- [ ] Ports, map name and protocol values match the spec.
-- [ ] Validator rejects missing variables, blank secrets, invalid ports, wrong map and tracked secret files.
-- [ ] Validator accepts valid development and VPS scratch configurations.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 14 configuration contract tests pass.
+- [x] Examples contain names/placeholders only and no usable credentials.
+- [x] Development uses `MYSQL_HOST=db`; VPS uses loopback/local MariaDB.
+- [x] Ports, map name and protocol values match the spec.
+- [x] Validator rejects missing variables, blank secrets, invalid ports, wrong map and tracked secret files.
+- [x] Validator accepts valid development and VPS scratch configurations.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 14 configuration contract tests pass.
 
 **Tests**: contract
 

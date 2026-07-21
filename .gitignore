@@ -1,3 +1,11 @@
 .DS_Store
 AGENTS.md
 sources/
+
+# Runtime secrets
+.env
+.env.*
+*.env
+*.env.*
+!.env.example
+!*.env.example

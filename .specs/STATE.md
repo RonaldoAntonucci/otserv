@@ -61,10 +61,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T4 pronta para commit
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 aprovada com 12/12 contratos e relação de fork confirmada
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:188`
-- **Next step**: registrar o commit atômico da T4 e iniciar T5, definindo o contrato compartilhado de configuração
+- **Phase / Task**: Execute — T5 pronta para commit
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 aprovada com 14/14 contratos
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:229`
+- **Next step**: registrar o commit atômico da T5 e iniciar T6, adicionando o build Docker reproduzível do TFS
 - **Blockers**: deploy nativo futuro requer terminal/SSH
 - **Uncommitted files**: artefatos da T3 até o commit atômico
 - **Branch**: `main`
