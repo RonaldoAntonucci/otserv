@@ -381,7 +381,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T9: Add the Idempotent Native VPS Installer
 
-**Status**: Partial — validation gap tracked by T13
+**Status**: Complete
 
 **What**: Add the Ubuntu 24.04 installer that provisions dependencies, MariaDB, the dedicated user, pinned TFS release and service without destroying an existing installation.
 
@@ -537,7 +537,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T13: Enforce the Native Configuration Contract Before Mutation
 
-**Status**: Pending
+**Status**: Complete
 
 **What**: Make the native installer reuse the canonical VPS configuration validator before its first mutating operation.
 
@@ -549,11 +549,11 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Valid VPS configuration still passes.
-- [ ] Invalid database identity, ports, map and protocol are rejected by the installer path.
-- [ ] Canonical validation runs before lock, package, identity, database, file or service mutation.
-- [ ] Gate passes: `make test-static`.
-- [ ] Expected count: exactly 17 installer contracts and 69 static assertions pass.
+- [x] Valid VPS configuration still passes.
+- [x] Invalid database identity, ports, map and protocol are rejected by the installer path.
+- [x] Canonical validation runs before lock, package, identity, database, file or service mutation.
+- [x] Gate passes: `make test-static`.
+- [x] Expected count: exactly 17 installer contracts and 69 static assertions pass.
 
 **Tests**: contract
 

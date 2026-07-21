@@ -231,6 +231,41 @@ fi
 assert_equal true "$contract" "environment source must be real, complete and placeholder-free" || true
 
 contract=false
+semantic_contract=true
+if [ "$installer_loaded" = true ] && command -v validate_vps_configuration >/dev/null 2>&1 &&
+    validate_vps_configuration "$valid_env" "$ROOT_DIR/scripts/validate-config.sh" >/dev/null 2>&1; then
+    for invalid_case in \
+        MYSQL_PORT:3307 \
+        MYSQL_DATABASE:wrong_database \
+        MYSQL_USER:wrong_user \
+        TFS_LOGIN_PORT:not-a-port \
+        TFS_GAME_PORT:7173 \
+        TFS_STATUS_PORT:7172 \
+        TFS_MAP_NAME:missing-map \
+        TFS_PROTOCOL:12.00
+    do
+        invalid_key=${invalid_case%%:*}
+        invalid_value=${invalid_case#*:}
+        invalid_env="$SCRATCH_DIR/invalid-${invalid_key}.env"
+        awk -F= -v key="$invalid_key" -v value="$invalid_value" '
+            $1 == key { print key "=" value; next }
+            { print }
+        ' "$valid_env" >"$invalid_env"
+        if validate_vps_configuration "$invalid_env" "$ROOT_DIR/scripts/validate-config.sh" >/dev/null 2>&1; then
+            semantic_contract=false
+        fi
+    done
+
+    validation_line=$(grep -nF 'validate_vps_configuration "$environment_source" "$project_root/scripts/validate-config.sh"' "$INSTALLER" | tail -n 1 | cut -d: -f1)
+    lock_line=$(grep -nF 'exec 9>/run/lock/otserv-install.lock' "$INSTALLER" | cut -d: -f1)
+    if [ "$semantic_contract" = true ] && [ -n "$validation_line" ] && [ -n "$lock_line" ] &&
+        [ "$validation_line" -lt "$lock_line" ]; then
+        contract=true
+    fi
+fi
+assert_equal true "$contract" "installer enforces canonical VPS semantics before mutation" || true
+
+contract=false
 installed_env="$SCRATCH_DIR/etc/otserv.env"
 if [ "$installer_loaded" = true ] && command -v install_environment >/dev/null 2>&1 &&
     install_environment "$valid_env" "$installed_env" >/dev/null 2>&1 &&

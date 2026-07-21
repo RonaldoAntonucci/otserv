@@ -139,6 +139,18 @@ validate_environment_source() {
     }
 }
 
+validate_vps_configuration() {
+    source_file=$1
+    validator=$2
+
+    [ -r "$validator" ] || {
+        fail "cannot read the VPS configuration validator"
+        return 1
+    }
+    repository_root=$(CDPATH= cd -- "$(dirname "$validator")/.." && pwd)
+    REPOSITORY_ROOT="$repository_root" sh "$validator" vps "$source_file"
+}
+
 validate_existing_environment() {
     destination=$1
 
@@ -362,6 +374,7 @@ main() {
     validate_root "$(id -u)"
     validate_platform /etc/os-release "$(dpkg --print-architecture)"
     validate_environment_source "$environment_source"
+    validate_vps_configuration "$environment_source" "$project_root/scripts/validate-config.sh"
     verify_revision "$server_source" "$TFS_REVISION"
 
     exec 9>/run/lock/otserv-install.lock
