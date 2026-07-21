@@ -381,7 +381,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T9: Add the Idempotent Native VPS Installer
 
-**Status**: Complete
+**Status**: Partial — validation gap tracked by T13
 
 **What**: Add the Ubuntu 24.04 installer that provisions dependencies, MariaDB, the dedicated user, pinned TFS release and service without destroying an existing installation.
 
@@ -498,7 +498,7 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T12: Publish the Reproducible Bootstrap Runbook
 
-**Status**: Complete
+**Status**: Partial — validation gap tracked by T14
 
 **What**: Complete the README/runbook for cloning with submodules, Docker development, native VPS installation, logs, recovery and all approved gates.
 
@@ -535,6 +535,62 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ---
 
+### T13: Enforce the Native Configuration Contract Before Mutation
+
+**Status**: Pending
+
+**What**: Make the native installer reuse the canonical VPS configuration validator before its first mutating operation.
+
+**Where**: `deploy/vps/install.sh`, `tests/installer-contract.sh`
+
+**Depends on**: T12, independent validation iteration 1
+
+**Requirement**: BOOT-06
+
+**Done when**:
+
+- [ ] Valid VPS configuration still passes.
+- [ ] Invalid database identity, ports, map and protocol are rejected by the installer path.
+- [ ] Canonical validation runs before lock, package, identity, database, file or service mutation.
+- [ ] Gate passes: `make test-static`.
+- [ ] Expected count: exactly 17 installer contracts and 69 static assertions pass.
+
+**Tests**: contract
+
+**Gate**: quick — `make test-static`
+
+**Commit**: `fix(vps): validate native configuration before mutation`
+
+---
+
+### T14: Require an Active TFS Service Before Installer Readiness
+
+**Status**: Pending
+
+**What**: Start and verify the native TFS service before declaring the installation ready, and align the runbook/counts.
+
+**Where**: `deploy/vps/install.sh`, `tests/installer-contract.sh`, `README.md`, `docs/development.md`, `docs/vps.md`
+
+**Depends on**: T13
+
+**Requirement**: BOOT-04, BOOT-08
+
+**Done when**:
+
+- [ ] Installer enables and starts `tfs.service`, then verifies it is active.
+- [ ] Start failure returns non-zero and cannot reach the readiness message.
+- [ ] The documented clean-install sequence goes directly from installer to smoke.
+- [ ] Local gate passes with exactly 18 installer contracts and 94 aggregate assertions.
+- [ ] Reapplying the installer on the VPS is idempotent and `make test-vps` passes 14/14.
+
+**Tests**: contract + retained native e2e
+
+**Gate**: build/remote — `make verify`, then `make test-vps`
+
+**Commit**: `fix(vps): require active service before readiness`
+
+---
+
 ## Parallel Execution Map
 
 ```text
@@ -545,7 +601,7 @@ Phase 2 — Docker Development
   T4 → T5 → T6 → T7
 
 Phase 3 — Native VPS and Handoff
-  T7 → T8 → T9 → T10 → T11 → T12
+  T7 → T8 → T9 → T10 → T11 → T12 → T13 → T14
 ```
 
 No task is marked `[P]`: although static tests can be isolated, every task changes the shared worktree and must be gated and committed atomically before the next begins.
@@ -568,6 +624,8 @@ No task is marked `[P]`: although static tests can be isolated, every task chang
 | T10 | Native smoke gate | ✅ Component + co-located tests |
 | T11 | Validated VPS installation | ✅ One external deployment outcome |
 | T12 | Bootstrap runbook | ✅ Documentation handoff |
+| T13 | Native pre-mutation validation | ✅ Focused validation fix |
+| T14 | Native service readiness | ✅ Focused lifecycle fix |
 
 **Result**: all tasks pass the granularity gate.
 
@@ -589,6 +647,8 @@ No task is marked `[P]`: although static tests can be isolated, every task chang
 | T10 | T9 | T9 → T10 | ✅ Match |
 | T11 | T10 | T10 → T11 | ✅ Match |
 | T12 | T11 | T11 → T12 | ✅ Match |
+| T13 | T12 | T12 → T13 | ✅ Match |
+| T14 | T13 | T13 → T14 | ✅ Match |
 
 **Result**: diagram and task definitions are consistent.
 

@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "promote_threshold": 2,
+  "window_days": 45,
+  "quarantine_threshold": 2,
+  "next_id": 3,
+  "lessons": [
+    {
+      "id": "L-001",
+      "key": "ac_gap::native installers must reuse the complete configuration contract before their first mutating operation",
+      "text": "Native installers must reuse the complete configuration contract before their first mutating operation",
+      "signal": "ac_gap",
+      "scope": "deploy/vps",
+      "status": "candidate",
+      "features": [
+        "bootstrap-open-tibia-server"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        ".specs/features/bootstrap-open-tibia-server/validation.md:76 (deploy/vps)"
+      ],
+      "created": "2026-07-21T20:35:44Z",
+      "last_seen": "2026-07-21T20:35:44Z"
+    },
+    {
+      "id": "L-002",
+      "key": "ac_gap::installers must not declare readiness until the managed service is active and the documented immediate smoke prerequisites are satisfied",
+      "text": "Installers must not declare readiness until the managed service is active and the documented immediate smoke prerequisites are satisfied",
+      "signal": "ac_gap",
+      "scope": "deploy/vps",
+      "status": "candidate",
+      "features": [
+        "bootstrap-open-tibia-server"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        ".specs/features/bootstrap-open-tibia-server/validation.md:84 (deploy/vps)"
+      ],
+      "created": "2026-07-21T20:35:49Z",
+      "last_seen": "2026-07-21T20:35:49Z"
+    }
+  ]
+}

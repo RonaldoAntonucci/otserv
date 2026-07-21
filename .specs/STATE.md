@@ -101,10 +101,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute concluído — validação independente pendente
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 `9dcf391`; T12 passou 92/92 no gate local completo
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/validation.md:1`
-- **Next step**: commitar T12 e despachar o Verifier independente obrigatório para cobertura, evidência e discrimination sensor
+- **Phase / Task**: Verify/Fix — iteração 1 falhou; T13 pronta para iniciar
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 `9dcf391`; T12 `2a24cf7`; Verifier 1: 92/92, sensor 3/3, FAIL em validação pré-mutação e prontidão do serviço
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md` — T13/T14
+- **Next step**: executar T13 e T14 com testes primeiro, reaplicar na VPS, e despachar Verifier independente da iteração 2
 - **Blockers**: nenhum
-- **Uncommitted files**: nenhum após o commit atômico da T12
+- **Uncommitted files**: nenhum após o commit do relatório/lessons da iteração 1
 - **Branch**: `main`
