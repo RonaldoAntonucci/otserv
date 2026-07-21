@@ -186,12 +186,15 @@ cp "$ROOT_DIR/deploy/vps/config-loader.lua" "$existing_release/config.lua"
 cp "$ROOT_DIR/server/key.pem" "$existing_release/key.pem"
 cp "$ROOT_DIR/server/data/world/forgotten.otbm" "$existing_release/data/world/forgotten.otbm"
 printf '%s\n' "$EXPECTED_REVISION" >"$existing_release/REVISION"
+chmod -R go= "$existing_release"
 : >"$CALL_LOG"
 if [ "$installer_loaded" = true ] && command -v deploy_release >/dev/null 2>&1 &&
     PATH="$MOCK_BIN:$PATH" CALL_LOG="$CALL_LOG" deploy_release \
         "$ROOT_DIR/server" "$release_root" "$current_link" "$EXPECTED_REVISION" \
         "$ROOT_DIR/deploy/vps/config-loader.lua" >/dev/null 2>&1 &&
-    [ ! -s "$CALL_LOG" ] && [ "$(readlink "$current_link")" = "$existing_release" ]; then
+    [ ! -s "$CALL_LOG" ] && [ "$(readlink "$current_link")" = "$existing_release" ] &&
+    runuser -u otserv -- sh -c 'cd "$1" && test -x tfs && test -r config.lua && test -r key.pem && test -r data/world/forgotten.otbm' \
+        sh "$existing_release"; then
     contract=true
 fi
 assert_equal true "$contract" "valid existing release is reused without recompilation" || true

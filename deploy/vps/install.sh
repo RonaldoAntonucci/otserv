@@ -237,6 +237,13 @@ validate_release() {
         [ "$(cat "$release_directory/REVISION")" = "$expected_revision" ]
 }
 
+apply_release_permissions() {
+    release_directory=$1
+
+    chown -R root:otserv "$release_directory"
+    chmod -R u=rwX,g=rX,o= "$release_directory"
+}
+
 cleanup_temporary_directory() {
     release_root=$1
     candidate=$2
@@ -269,6 +276,7 @@ deploy_release() {
     mkdir -p "$release_root"
 
     if validate_release "$target_release" "$expected_revision"; then
+        apply_release_permissions "$target_release"
         activate_release "$target_release" "$current_link"
         return 0
     fi
@@ -307,8 +315,7 @@ deploy_release() {
     install -m 0644 "$config_loader" "$release_stage/config.lua"
     printf '%s\n' "$expected_revision" >"$release_stage/REVISION"
 
-    chown -R root:otserv "$release_stage"
-    chmod -R u=rwX,g=rX,o= "$release_stage"
+    apply_release_permissions "$release_stage"
 
     if ! validate_release "$release_stage" "$expected_revision"; then
         cleanup_temporary_directory "$release_root" "$build_directory"
