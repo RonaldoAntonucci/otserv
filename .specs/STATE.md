@@ -90,13 +90,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-012
+- **Decision**: Releases nativos serão publicados como `root:otserv`, com leitura/execução para o grupo de serviço e nenhum acesso para outros usuários.
+- **Reason**: Diretórios criados por staging restritivo precisam continuar imutáveis para o serviço, mas o usuário `otserv` deve conseguir atravessar e ler todo o bundle.
+- **Trade-off**: Operadores fora de `root` ou do grupo `otserv` não inspecionam diretamente o release.
+- **Scope**: Instalador nativo e permissões de `/opt/otserv/releases/<commit>`.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T10 completa; T11 próxima
+- **Phase / Task**: Execute — T11 em andamento
 - **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 aprovada com 12/12 contratos e fixture 14/14
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:459`
-- **Next step**: obter canal SSH autorizado, instalar na VPS `1826871` e executar o gate nativo duas vezes
-- **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: nenhum após o commit atômico da T10
+- **In-progress** (file:line): `deploy/vps/install.sh:310`
+- **Next step**: publicar a correção de permissões, reaplicar o instalador na VPS `1826871` e executar o gate nativo duas vezes
+- **Blockers**: nenhum; SSH root não interativo validado
+- **Uncommitted files**: nenhum após o commit atômico da correção de permissões
 - **Branch**: `main`

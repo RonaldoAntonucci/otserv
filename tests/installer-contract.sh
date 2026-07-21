@@ -17,6 +17,7 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 
 mkdir -p "$MOCK_BIN"
+chmod 0755 "$SCRATCH_DIR"
 : >"$CALL_LOG"
 
 installer_loaded=false
@@ -148,6 +149,8 @@ if [ "$installer_loaded" = true ] && command -v deploy_release >/dev/null 2>&1 &
     [ -x "$release_root/$EXPECTED_REVISION/tfs" ] &&
     [ -r "$release_root/$EXPECTED_REVISION/config.lua" ] &&
     [ -r "$release_root/$EXPECTED_REVISION/data/world/forgotten.otbm" ] &&
+    runuser -u otserv -- sh -c 'cd "$1" && test -x tfs && test -r config.lua && test -r key.pem && test -r data/world/forgotten.otbm' \
+        sh "$release_root/$EXPECTED_REVISION" &&
     [ "$(cat "$release_root/$EXPECTED_REVISION/REVISION")" = "$EXPECTED_REVISION" ]; then
     contract=true
 fi

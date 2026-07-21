@@ -307,6 +307,9 @@ deploy_release() {
     install -m 0644 "$config_loader" "$release_stage/config.lua"
     printf '%s\n' "$expected_revision" >"$release_stage/REVISION"
 
+    chown -R root:otserv "$release_stage"
+    chmod -R u=rwX,g=rX,o= "$release_stage"
+
     if ! validate_release "$release_stage" "$expected_revision"; then
         cleanup_temporary_directory "$release_root" "$build_directory"
         cleanup_temporary_directory "$release_root" "$release_stage"
