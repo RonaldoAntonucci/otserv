@@ -146,7 +146,7 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 | Requirement ID | Story | Phase | Status |
 | --- | --- | --- | --- |
 | BOOT-01 | P1: Estrutura de código-fonte | Execute | In Progress |
-| BOOT-02 | P1: Build reproduzível | Tasks | In Tasks |
+| BOOT-02 | P1: Build reproduzível | Execute | In Progress |
 | BOOT-03 | P1: Banco e inicialização | Tasks | In Tasks |
 | BOOT-04 | P1: Datapack e servidor pronto | Tasks | In Tasks |
 | BOOT-05 | P2: Fork do cliente preparado | Tasks | In Tasks |

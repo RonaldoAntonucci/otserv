@@ -152,9 +152,11 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T3: Fork and Pin The Forgotten Server
 
+**Status**: Complete
+
 **What**: Create the true TFS fork and register it as the `server/` submodule pinned to TFS `v1.6` commit `098641981400f8ff89959f427f0e8718d9dd22e2`, with repository contract assertions.
 
-**Where**: GitHub `RonaldoAntonucci/forgottenserver`, `.gitmodules`, `server/`, `tests/repository-structure.sh`
+**Where**: GitHub `RonaldoAntonucci/forgottenserver`, `.gitmodules`, `server/`, `scripts/validate-repositories.sh`, `tests/repository-structure-contract.sh`
 
 **Depends on**: T2
 
@@ -170,12 +172,12 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] GitHub reports `RonaldoAntonucci/forgottenserver` as a fork of `otland/forgottenserver`.
-- [ ] `server/` points to the user's fork and exact SHA `098641981400f8ff89959f427f0e8718d9dd22e2`.
-- [ ] The local submodule has an `upstream` remote for `otland/forgottenserver`.
-- [ ] Contract tests reject a scratch wrong owner, URL or SHA.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 8 repository contract tests pass.
+- [x] GitHub reports `RonaldoAntonucci/forgottenserver` as a fork of `otland/forgottenserver`.
+- [x] `server/` points to the user's fork and exact SHA `098641981400f8ff89959f427f0e8718d9dd22e2`.
+- [x] The local submodule has an `upstream` remote for `otland/forgottenserver`.
+- [x] Contract tests reject a scratch wrong owner, URL or SHA.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 8 repository contract tests pass.
 
 **Tests**: contract/integration
 
