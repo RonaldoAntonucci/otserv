@@ -101,10 +101,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Verify/Fix — T13/T14 concluídas; Verifier 2 pendente
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 `9dcf391`; T12 `2a24cf7`; Verifier 1 `b9e2615`; T13 `c47f150`; T14 passou 18/18 contratos, 94/94 locais, reaplicação idempotente e smoke VPS 14/14
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/validation.md:1`
-- **Next step**: commitar/publicar T14 e despachar Verifier independente da iteração 2
+- **Phase / Task**: Feature concluída — Verifier 2 PASS
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 `9dcf391`; T12 `2a24cf7`; Verifier 1 `b9e2615`; T13 `c47f150`; T14 `da5e389`; Verifier 2 PASS com 17/17 ACs, 9/9 edge cases, 94/94 locais, 14/14 VPS retido e sensor 3/3
+- **In-progress** (file:line): nenhum
+- **Next step**: iniciar uma nova feature para conexão/compilação do OTClient ou para seleção auditada do datapack definitivo
 - **Blockers**: nenhum
-- **Uncommitted files**: nenhum após o commit do relatório/lessons da iteração 1
+- **Uncommitted files**: nenhum após o commit do relatório final de validação
 - **Branch**: `main`

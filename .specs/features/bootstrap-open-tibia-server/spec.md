@@ -145,14 +145,14 @@ O projeto ainda não possui repositórios próprios, ambiente reproduzível ou u
 
 | Requirement ID | Story | Phase | Status |
 | --- | --- | --- | --- |
-| BOOT-01 | P1: Estrutura de código-fonte | Execute | Complete |
-| BOOT-02 | P1: Build reproduzível | Execute | Complete |
-| BOOT-03 | P1: Banco e inicialização | Execute | Complete |
-| BOOT-04 | P1: Datapack e servidor pronto | Verify/Fix | Fixed — Pending Verify |
-| BOOT-05 | P2: Fork do cliente preparado | Execute | Complete |
-| BOOT-06 | Edge cases: validação e falhas | Verify/Fix | Fixed — Pending Verify |
-| BOOT-07 | Edge cases: segurança e persistência | Execute | Complete |
-| BOOT-08 | Edge cases: observabilidade e prontidão | Verify/Fix | Fixed — Pending Verify |
+| BOOT-01 | P1: Estrutura de código-fonte | Verify | Verified |
+| BOOT-02 | P1: Build reproduzível | Verify | Verified |
+| BOOT-03 | P1: Banco e inicialização | Verify | Verified |
+| BOOT-04 | P1: Datapack e servidor pronto | Verify | Verified |
+| BOOT-05 | P2: Fork do cliente preparado | Verify | Verified |
+| BOOT-06 | Edge cases: validação e falhas | Verify | Verified |
+| BOOT-07 | Edge cases: segurança e persistência | Verify | Verified |
+| BOOT-08 | Edge cases: observabilidade e prontidão | Verify | Verified |
 
 **Coverage:** 8 total, 8 mapped to tasks, 0 unmapped.
 

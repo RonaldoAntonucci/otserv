@@ -9,7 +9,7 @@ Implement these tasks with the `tlc-spec-driven` skill: **activate it by name an
 ---
 
 **Design**: `.specs/features/bootstrap-open-tibia-server/design.md`
-**Status**: Approved — Execute in progress
+**Status**: Complete — independently verified in iteration 2
 
 ---
 
