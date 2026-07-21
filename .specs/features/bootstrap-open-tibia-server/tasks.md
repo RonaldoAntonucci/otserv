@@ -265,6 +265,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T6: Add the Development TFS Docker Build
 
+**Status**: Complete
+
 **What**: Add an Ubuntu 24.04 multi-stage Dockerfile that builds the pinned TFS in `RelWithDebInfo` and a co-located integration test for the produced runtime image.
 
 **Where**: `docker/tfs.Dockerfile`, `.dockerignore`, `tests/docker-build.sh`, `Makefile`
@@ -283,13 +285,13 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Build uses only the repository context and pinned `server/` submodule.
-- [ ] Runtime image contains executable TFS, config, schema and official datapack.
-- [ ] Image runs as a non-root user and does not declare a broad `/srv` volume.
-- [ ] Clean `linux/amd64` build produces an executable linked against expected runtime libraries.
-- [ ] A scratch invalid source/build stage is killed by the test.
-- [ ] Gate passes: `make test-dev` build portion.
-- [ ] Test count: exactly 6 Docker build integration tests pass.
+- [x] Build uses only the repository context and pinned `server/` submodule.
+- [x] Runtime image contains executable TFS, config, schema and official datapack.
+- [x] Image runs as a non-root user and does not declare a broad `/srv` volume.
+- [x] Clean `linux/amd64` build produces an executable linked against expected runtime libraries.
+- [x] A scratch invalid source/build stage is killed by the test.
+- [x] Gate passes: `make test-dev` build portion.
+- [x] Test count: exactly 6 Docker build integration tests pass.
 
 **Tests**: integration
 

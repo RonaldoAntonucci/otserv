@@ -7,7 +7,7 @@ test-static:
 	docker run --rm --volume "$(CURDIR):/workspace:ro" $(TEST_IMAGE)
 
 test-dev:
-	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=development
+	sh tests/docker-build.sh
 
 test-vps:
 	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=vps

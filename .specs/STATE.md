@@ -61,10 +61,10 @@
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T5 pronta para commit
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 aprovada com 14/14 contratos
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:229`
-- **Next step**: registrar o commit atômico da T5 e iniciar T6, adicionando o build Docker reproduzível do TFS
+- **Phase / Task**: Execute — T6 completa; T7 próxima
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 aprovada com 6/6 integrações
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:304`
+- **Next step**: adicionar a stack Compose de desenvolvimento com MariaDB 10.11 e smoke test isolado
 - **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: artefatos da T3 até o commit atômico
+- **Uncommitted files**: nenhum após o commit atômico da T6
 - **Branch**: `main`
