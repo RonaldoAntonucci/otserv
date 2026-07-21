@@ -343,6 +343,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T8: Add the Native VPS Service Bundle
 
+**Status**: Complete
+
 **What**: Add the native Ubuntu filesystem contract and hardened `systemd` unit, together with static unit/config tests executed in the test container.
 
 **Where**: `deploy/vps/tfs.service`, `deploy/vps/paths.env`, `tests/native-install-static.sh`, `Makefile`
@@ -361,13 +363,13 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] Unit syntax passes `systemd-analyze verify` in an Ubuntu 24.04 test container.
-- [ ] Unit uses dedicated `otserv` user, approved paths and root-owned environment file.
-- [ ] Unit orders after MariaDB/network readiness and uses `Restart=on-failure`.
-- [ ] Preflight refuses missing executable, config, environment, datapack or database readiness.
-- [ ] Contract tests reject weakened permissions and removed service dependencies.
-- [ ] Gate passes: `make test-static`.
-- [ ] Test count: exactly 10 native service contract tests pass.
+- [x] Unit syntax passes `systemd-analyze verify` in an Ubuntu 24.04 test container.
+- [x] Unit uses dedicated `otserv` user, approved paths and root-owned environment file.
+- [x] Unit orders after MariaDB/network readiness and uses `Restart=on-failure`.
+- [x] Preflight refuses missing executable, config, environment, datapack or database readiness.
+- [x] Contract tests reject weakened permissions and removed service dependencies.
+- [x] Gate passes: `make test-static`.
+- [x] Test count: exactly 10 native service contract tests pass.
 
 **Tests**: contract
 

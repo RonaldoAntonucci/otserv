@@ -9,4 +9,5 @@ sources/
 *.env.*
 !.env.example
 !*.env.example
+!deploy/vps/paths.env
 tests/.compose-test.*

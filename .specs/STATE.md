@@ -66,13 +66,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-009
+- **Decision**: O release nativo manterá um `config.lua` imutável que carrega `/etc/otserv/config.lua`; a unidade não usará `--config`.
+- **Reason**: No TFS 1.6, o parser reconhece `--config`, mas o `ConfigManager` redefine o caminho para `config.lua` durante o carregamento.
+- **Trade-off**: Cada release precisa incluir o pequeno loader Lua além do binário, chave e datapack.
+- **Scope**: Bundle `systemd`, instalador nativo e layout dos releases.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T7 completa; T8 próxima
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 aprovada com 18/18 integrações
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:345`
-- **Next step**: adicionar o bundle nativo da VPS e validar a unidade `systemd` do TFS
+- **Phase / Task**: Execute — T8 completa; T9 próxima
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 aprovada com 10/10 contratos
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:386`
+- **Next step**: adicionar o instalador nativo idempotente para Ubuntu 24.04
 - **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: nenhum após o commit atômico da T7
+- **Uncommitted files**: nenhum após o commit atômico da T8
 - **Branch**: `main`

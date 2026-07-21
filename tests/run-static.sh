@@ -6,7 +6,7 @@ passed_files=0
 failed_files=0
 found_files=0
 
-for test_file in $(find tests -maxdepth 1 -type f -name '*-contract.sh' | sort); do
+for test_file in $(find tests -maxdepth 1 -type f \( -name '*-contract.sh' -o -name 'native-install-static.sh' \) | sort); do
     found_files=$((found_files + 1))
     printf '\nRunning %s\n' "$test_file"
 
