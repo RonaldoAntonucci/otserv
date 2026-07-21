@@ -82,13 +82,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-011
+- **Decision**: O smoke nativo será somente leitura, exigirá o marcador `bootstrap_persistence_marker=vps-bootstrap-v1` criado no procedimento e reportará 14 verificações operacionais sem imprimir segredos.
+- **Reason**: A mesma execução precisa validar persistência antes e depois de restart/reinstalação sem alterar o estado que pretende comprovar.
+- **Trade-off**: A primeira validação remota exige criar explicitamente o marcador após a instalação inicial.
+- **Scope**: Gate nativo `make test-vps` e coleta de evidências da VPS.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
 - **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Execute — T9 completa; T10 próxima
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 aprovada com 16/16 contratos
-- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:421`
-- **Next step**: adicionar o smoke test nativo da VPS com rollback verificável
+- **Phase / Task**: Execute — T10 completa; T11 próxima
+- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 aprovada com 12/12 contratos e fixture 14/14
+- **In-progress** (file:line): `.specs/features/bootstrap-open-tibia-server/tasks.md:459`
+- **Next step**: obter canal SSH autorizado, instalar na VPS `1826871` e executar o gate nativo duas vezes
 - **Blockers**: deploy nativo futuro requer terminal/SSH
-- **Uncommitted files**: nenhum após o commit atômico da T9
+- **Uncommitted files**: nenhum após o commit atômico da T10
 - **Branch**: `main`

@@ -11,7 +11,7 @@ test-dev:
 	sh scripts/smoke-development.sh
 
 test-vps:
-	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=vps
+	sh scripts/smoke-vps.sh
 
 verify:
 	@$(MAKE) --no-print-directory --silent test-placeholder SUITE=verification

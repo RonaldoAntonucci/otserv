@@ -420,6 +420,8 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 ### T10: Add the Native VPS Smoke Test
 
+**Status**: Complete
+
 **What**: Add the VPS runtime smoke command and its contract tests so it can prove every native acceptance criterion after installation.
 
 **Where**: `scripts/smoke-vps.sh`, `tests/vps-smoke-contract.sh`, `Makefile`
@@ -438,13 +440,13 @@ There are exactly three phases, so execution stays inline. No phase workers are 
 
 **Done when**:
 
-- [ ] `make test-vps` delegates to the native smoke script and refuses non-VPS/non-systemd environments.
-- [ ] Smoke checks exact source SHA, executable, MariaDB schema, persistent marker, active service and listening ports.
-- [ ] Smoke checks official datapack load and absence of fatal journal entries from the current boot.
-- [ ] Fixture tests prove each missing/broken condition causes a non-zero exit.
-- [ ] Output reports explicit pass/fail counts without printing secrets.
-- [ ] Gate passes: `make test-static` before remote execution.
-- [ ] Test count: exactly 12 VPS smoke contract tests pass.
+- [x] `make test-vps` delegates to the native smoke script and refuses non-VPS/non-systemd environments.
+- [x] Smoke checks exact source SHA, executable, MariaDB schema, persistent marker, active service and listening ports.
+- [x] Smoke checks official datapack load and absence of fatal journal entries from the current boot.
+- [x] Fixture tests prove each missing/broken condition causes a non-zero exit.
+- [x] Output reports explicit pass/fail counts without printing secrets.
+- [x] Gate passes: `make test-static` before remote execution.
+- [x] Test count: exactly 12 VPS smoke contract tests pass.
 
 **Tests**: contract
 
