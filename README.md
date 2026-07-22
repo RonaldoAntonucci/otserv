@@ -39,6 +39,7 @@ sudo make test-vps  # somente na VPS nativa: 14 verificações
 ## Guias
 
 - [Desenvolvimento Docker no macOS](docs/development.md)
+- [Retomada do build do OTClient no Windows](docs/windows-otclient-handoff.md)
 - [Instalação e operação nativa da VPS](docs/vps.md)
 - [Evidência sanitizada da VPS](docs/vps-validation.md)
 

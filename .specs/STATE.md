@@ -98,13 +98,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-013
+- **Decision**: O OTClient Windows x64 será compilado nativamente em uma máquina Windows pelo fluxo MSVC/vcpkg já mantido no fork; o macOS ficará restrito à instalação persistente e ao UAT no CrossOver, sem receber dependências de build do projeto.
+- **Reason**: O fork já possui preset e CI nativos para Windows, enquanto o cross-build Docker/MinGW no Apple Silicon exigiria trabalho adicional de portabilidade e uma matriz de dependências ainda não validada.
+- **Trade-off**: A compilação passa a depender de uma máquina Windows preparada e os artefatos precisarão ser transferidos para o macOS antes da validação no CrossOver.
+- **Scope**: Build e empacotamento do cliente, preparação do ambiente Windows e UAT local no CrossOver.
+- **Date**: 2026-07-21
+- **Status**: active
+
 ## Handoff
 
-- **Feature**: Bootstrap Open Tibia Server / `.specs/features/bootstrap-open-tibia-server`
-- **Phase / Task**: Feature concluída — Verifier 2 PASS
-- **Completed**: T1 `e31cc663`; T2 `2d0bd363`; T3 `b831bd7`; T4 `351e40e`; T5 `63e1127`; T6 `3de35bb`; T7 `742d630`; T8 `ea2b346`; T9 `b834d25`; T10 `d9389cd`; correções de permissão `922b195` e `3ae90d0`; T11 `9dcf391`; T12 `2a24cf7`; Verifier 1 `b9e2615`; T13 `c47f150`; T14 `da5e389`; Verifier 2 PASS com 17/17 ACs, 9/9 edge cases, 94/94 locais, 14/14 VPS retido e sensor 3/3
-- **In-progress** (file:line): nenhum
-- **Next step**: iniciar uma nova feature para conexão/compilação do OTClient ou para seleção auditada do datapack definitivo
-- **Blockers**: nenhum
-- **Uncommitted files**: nenhum após o commit do relatório final de validação
+- **Feature**: Windows-built OTClient and First VPS Connection / `.specs/features/dockerized-otclient-vps-connection`
+- **Phase / Task**: pausada entre Specify e Design após mudança do ambiente de build
+- **Completed**: requisitos de runtime CrossOver/VPS levantados; bottle `Steam` Windows 10 auditada; viabilidade do cross-build Docker/MinGW pesquisada; pivô para build nativo Windows registrado em AD-013; guia de retomada Windows criado em `docs/windows-otclient-handoff.md`
+- **In-progress** (file:line): nenhuma implementação em andamento; `spec.md:1` está preservada como histórico e marcada para revisão
+- **Next step**: na máquina Windows, clonar com submódulos, validar os pré-requisitos do fork e revisar/reaprovar a especificação substituindo o fluxo Docker/MinGW pelo preset nativo `windows-release`; somente então iniciar Design
+- **Blockers**: ambiente Windows ainda não preparado; a especificação anterior não autoriza implementação porque sua estratégia de build foi substituída
+- **Uncommitted files**: nenhum após o commit deste handoff
 - **Branch**: `main`
