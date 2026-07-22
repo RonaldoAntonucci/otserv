@@ -106,13 +106,21 @@
 - **Date**: 2026-07-21
 - **Status**: active
 
+### AD-014
+- **Decision**: A feature atual do OTClient é entregue somente com o provisionamento verificado da conta `otserv-smoke` e do personagem `Docker Scout`; um cliente já compilado é suficiente para o acesso atual, e compilação, empacotamento e automação de conexão ficam para features futuras.
+- **Reason**: A identidade necessária para acessar o servidor já foi criada e validada, enquanto compilar o cliente não é prioridade operacional neste momento.
+- **Trade-off**: Esta entrega não produz nem valida um binário próprio do OTClient e não comprova automaticamente a conexão fim a fim.
+- **Scope**: Encerramento da feature de identidade do OTClient, priorização do build do cliente e validações futuras de acesso.
+- **Date**: 2026-07-22
+- **Status**: active
+
 ## Handoff
 
-- **Feature**: Windows-built OTClient and First VPS Connection / `.specs/features/dockerized-otclient-vps-connection`
-- **Phase / Task**: build pausado entre Specify e Design; slice independente `OTC-PROV` concluído e verificado
-- **Completed**: pivô Windows em AD-013 e guia de retomada preservados; slice de identidade ativado em `995e689`; provisionador transacional em `38ba490`; contratos reforçados em `1895531`; segredo ignorado `env/client-test.env` criado com modo `0600`; VPS contém exatamente uma conta `otserv-smoke` e um personagem ativo `Docker Scout`; primeira execução `created`, segunda `noop`; gate Docker pós-fix com 84/84 contratos; Verifier PASS em 11/11 critérios e sensor P0 com 8/8 mutações mortas
-- **In-progress** (file:line): nenhuma implementação em andamento; `.specs/features/dockerized-otclient-vps-connection/validation.md:1` registra o PASS independente do slice; a estratégia histórica de build em `spec.md:1` continua marcada para revisão
-- **Next step**: na máquina Windows, clonar com submódulos, validar os pré-requisitos do fork e revisar/reaprovar a especificação substituindo o fluxo Docker/MinGW pelo preset nativo `windows-release`; somente então iniciar Design e retomar build, instalação persistente no CrossOver e primeira conexão
-- **Blockers**: ambiente Windows ainda não preparado; a estratégia anterior de build permanece sem autorização para implementação; nenhum blocker restante no slice de identidade
-- **Uncommitted files**: nenhum após o commit deste handoff
+- **Feature**: OTClient Test Identity Provisioning / `.specs/features/dockerized-otclient-vps-connection`
+- **Phase / Task**: feature concluída e validada; escopo final limitado ao provisionamento da identidade
+- **Completed**: conta `otserv-smoke` e personagem ativo `Docker Scout` provisionados; primeira execução `created`, segunda `noop`; gate completo 84/84; contrato focado 14/14; Verifier PASS em 11/11 critérios; sensor P0 matou 8/8 mutações; compilação e conexão removidas do escopo por AD-014
+- **In-progress** (file:line): nenhuma implementação em andamento
+- **Next step**: nenhuma ação pendente nesta feature; criar uma nova especificação somente quando a compilação própria do OTClient ou a automação de conexão voltar a ser priorizada
+- **Blockers**: nenhum
+- **Uncommitted files**: nenhum após o commit de encerramento
 - **Branch**: `main`
