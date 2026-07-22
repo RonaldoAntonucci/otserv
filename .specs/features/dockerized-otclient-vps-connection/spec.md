@@ -1,6 +1,10 @@
 # Docker-built Windows OTClient and First VPS Connection Specification
 
-> **Status: PAUSED — REQUIRES RE-SPECIFICATION BEFORE DESIGN.** On 2026-07-21, after this specification was approved, the user replaced the Docker/MinGW build strategy with a native Windows MSVC/vcpkg build. The `OTC-BLD-*` requirements and all dependent Docker/MinGW or NSIS assumptions below are preserved only as historical research and MUST NOT be implemented. Runtime, persistent CrossOver installation, test-account, and VPS-connection outcomes remain candidates for the revised specification.
+> **Status: PARTIALLY ACTIVE.** On 2026-07-21, after this specification was approved, the user replaced the Docker/MinGW build strategy with a native Windows MSVC/vcpkg build. The `OTC-BLD-*` requirements and all dependent Docker/MinGW or NSIS assumptions below are preserved only as historical research and MUST NOT be implemented. On the same date, the user explicitly authorized the independent test-identity provisioning slice to proceed before the client build. Only `OTC-PROV-01`–`OTC-PROV-09` and their directly applicable edge cases are active; build, CrossOver runtime, and connection execution remain paused until re-specification.
+
+## Active Delivery Slice
+
+Provision exactly one persistent account `otserv-smoke` and one non-deleted character `Docker Scout` on the already validated VPS. Use a generated 32-character URL-safe password held only in ignored `env/client-test.env`, prove the exact deployed map/town/temple tile before mutation, create or accept an exact idempotent no-op in one serialized transaction, and emit only sanitized verification. This slice is independently complete when an initial execution reports `created`, a repeated execution reports `noop`, and both prove one digest-matching account linked to exactly one active character with `town_id=1` and zero position.
 
 ## Problem Statement
 
@@ -174,7 +178,7 @@ Every ambiguity is resolved or recorded here. Approval of this specification con
 | --- | --- | --- | --- |
 | `OTC-BLD-01`–`OTC-BLD-07` | Traceable Docker-only Windows client build | Design | Pending |
 | `OTC-RUN-01`–`OTC-RUN-12` | Persistent isolated VPS-ready CrossOver installation | Design | Pending |
-| `OTC-PROV-01`–`OTC-PROV-09` | Transactional test identity provisioning | Design | Pending |
+| `OTC-PROV-01`–`OTC-PROV-09` | Transactional test identity provisioning | Execute independently | Active |
 | `OTC-CONN-01`–`OTC-CONN-05` | First character connection and evidence | Design | Pending |
 | `OTC-EDGE-01`–`OTC-EDGE-10` | Cross-component edge cases | Design | Pending |
 

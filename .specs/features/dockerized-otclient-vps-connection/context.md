@@ -27,6 +27,10 @@ After the original specification was approved, the user selected a native Window
 
 The following confirmed outcomes remain intended unless the revised specification changes them: Windows x64 delivery, persistent installation in the existing CrossOver `Steam` bottle, the isolated runtime profile, test identity provisioning, and first world-entry validation against the VPS.
 
+## Independently resumed slice
+
+On 2026-07-21 the user authorized creation of the test account and character before the client build. The active slice is limited to `OTC-PROV-01`–`OTC-PROV-09` and directly applicable provisioning edge cases. Its confirmed identity remains account `otserv-smoke`, character `Docker Scout`, a generated 32-character URL-safe password in ignored mode-`0600` `env/client-test.env`, `town_id=1`, and zero initial position. Build, CrossOver installation, and first-connection execution remain paused.
+
 ## Defaults approved with the specification
 
 Approval of `spec.md` also confirmed its proposed defaults:
