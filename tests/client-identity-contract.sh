@@ -21,6 +21,25 @@ if sh -n "$PROVISIONER" && python3 "$MAP_PROBE" --help >/dev/null &&
 fi
 assert_equal true "$contract" "provisioner syntax and trust boundaries are strict" || true
 
+contract=false
+if grep -Fq '[ "$(file_owner "$validate_file")" = "$(id -un)" ] || return 1' "$PROVISIONER"; then
+    contract=true
+fi
+assert_equal true "$contract" "secret validation requires the current file owner" || true
+
+contract=false
+if awk '
+    index($0, "sha256sum /opt/otserv/current/data/world/forgotten.otbm") &&
+    index($0, "= '\''$EXPECTED_MAP_SHA256'\''") &&
+    index($0, "sha256sum /opt/otserv/current/data/world/forgotten.otbm") < index($0, "exec mariadb") {
+        guarded = 1
+    }
+    END { exit guarded ? 0 : 1 }
+' "$PROVISIONER"; then
+    contract=true
+fi
+assert_equal true "$contract" "remote map digest is verified before MariaDB executes" || true
+
 OTSERV_PROVISION_SOURCE_ONLY=true
 export OTSERV_PROVISION_SOURCE_ONLY
 # shellcheck source=/dev/null
@@ -95,6 +114,31 @@ if printf '%s\n' "$sql" | grep -Fq "GET_LOCK('otserv:client-test-identity', 30)"
     contract=true
 fi
 assert_equal true "$contract" "SQL is serialized transactional idempotent and fail-closed" || true
+
+contract=false
+if printf '%s\n' "$sql" |
+    grep -Fxq 'INSERT INTO players (name, account_id, town_id, posx, posy, posz)' &&
+    printf '%s\n' "$sql" |
+    grep -Fxq 'SELECT @character_name, @account_id, 1, 0, 0, 0 WHERE @create_mode = 1;'; then
+    contract=true
+fi
+assert_equal true "$contract" "created character starts in town 1 with unset position" || true
+
+contract=false
+if printf '%s\n' "$sql" |
+    grep -Fq '@account_count = 1 AND @digest_match = 1 AND'; then
+    contract=true
+fi
+assert_equal true "$contract" "noop mode requires the expected password digest" || true
+
+contract=false
+if printf '%s\n' "$sql" |
+    grep -Fxq 'SELECT @@GLOBAL.general_log = 0 INTO @general_log_disabled;' &&
+    printf '%s\n' "$sql" |
+    grep -Fq '@town_valid = 1 AND @schema_valid = 1 AND @general_log_disabled = 1 AND'; then
+    contract=true
+fi
+assert_equal true "$contract" "preflight requires the MariaDB general log to be disabled" || true
 
 contract=false
 if ! write_provision_sql invalid-digest >/dev/null 2>&1; then
