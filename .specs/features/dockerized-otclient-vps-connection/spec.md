@@ -178,11 +178,11 @@ Every ambiguity is resolved or recorded here. Approval of this specification con
 | --- | --- | --- | --- |
 | `OTC-BLD-01`–`OTC-BLD-07` | Traceable Docker-only Windows client build | Design | Pending |
 | `OTC-RUN-01`–`OTC-RUN-12` | Persistent isolated VPS-ready CrossOver installation | Design | Pending |
-| `OTC-PROV-01`–`OTC-PROV-09` | Transactional test identity provisioning | Execute independently | Active |
+| `OTC-PROV-01`–`OTC-PROV-09` | Transactional test identity provisioning | Execute independently | Verified |
 | `OTC-CONN-01`–`OTC-CONN-05` | First character connection and evidence | Design | Pending |
-| `OTC-EDGE-01`–`OTC-EDGE-10` | Cross-component edge cases | Design | Pending |
+| `OTC-EDGE-01`–`OTC-EDGE-10` | Cross-component edge cases | Execute independently / Design | `OTC-EDGE-08`–`OTC-EDGE-09` Verified; remainder Pending |
 
-**Coverage:** 43 normative requirements total; all 43 have inline unique IDs, all 43 are pending design, and all 9 implicit-requirement dimensions map to named requirement IDs or an explicit scoped N/A.
+**Coverage:** 43 normative requirements total; all 43 have inline unique IDs, 11 are verified in the independent provisioning slice, 32 remain pending, and all 9 implicit-requirement dimensions map to named requirement IDs or an explicit scoped N/A.
 
 ---
 
@@ -190,6 +190,6 @@ Every ambiguity is resolved or recorded here. Approval of this specification con
 
 - [ ] A clean Docker-only feasibility/build gate produces an atomically published, fully inspected Windows x64 OpenGL static payload and project-owned NSIS 3.09 user-level installer from the final root-pinned OTClient commit descended from baseline `99d43bd6559841ee684e35082da3ea9a360d0e16`.
 - [ ] CrossOver 26.2 keeps the client installed under `%LOCALAPPDATA%\OTServ\OTClient` in the existing `Steam` Windows 10 bottle, exposes it through `$SMPROGRAMS\OTServ\OTServ OTClient.lnk` and the derived persistent `OTServ OTClient` CrossOver launcher, passes idempotent update/rollback gates, and uses only the isolated `otserv/otclient-vps-smoke` profile without credential persistence or intentional unrelated bottle modification.
-- [ ] The deployed map probe proves the town-1 temple contract before the VPS transaction, and initial plus repeated provisioning produces exactly one digest-matching `otserv-smoke` / `Docker Scout` linkage with the specified initial town/position fixture.
+- [x] The deployed map probe proves the town-1 temple contract before the VPS transaction, and initial plus repeated provisioning produces exactly one digest-matching `otserv-smoke` / `Docker Scout` linkage with the specified initial town/position fixture.
 - [ ] `Docker Scout` is the only character returned, enters the official bootstrap world, appears in `players_online`, and advances `lastlogin` after clean disconnect within the captured UTC attempt bounds.
 - [ ] All feature gates and the independent Verifier pass without installing a project dependency directly on macOS, weakening source/dependency/security pins, exposing credentials/digests, or falling back to a different builder/runtime path.

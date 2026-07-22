@@ -3,7 +3,7 @@
   "promote_threshold": 2,
   "window_days": 45,
   "quarantine_threshold": 2,
-  "next_id": 3,
+  "next_id": 8,
   "lessons": [
     {
       "id": "L-001",
@@ -40,6 +40,96 @@
       ],
       "created": "2026-07-21T20:35:49Z",
       "last_seen": "2026-07-21T20:35:49Z"
+    },
+    {
+      "id": "L-003",
+      "key": "surviving_mutant::assert exact conflict predicates for idempotent no op paths not merely the presence of a preflight guard",
+      "text": "Assert exact conflict predicates for idempotent no-op paths, not merely the presence of a preflight guard.",
+      "signal": "surviving_mutant",
+      "scope": "provisioning",
+      "status": "candidate",
+      "features": [
+        "dockerized-otclient-vps-connection"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        "M5 (provisioning)"
+      ],
+      "created": "2026-07-22T02:36:55Z",
+      "last_seen": "2026-07-22T02:36:55Z"
+    },
+    {
+      "id": "L-004",
+      "key": "surviving_mutant::assert remote artifact identity gates at the boundary immediately before persistent mutation",
+      "text": "Assert remote artifact identity gates at the boundary immediately before persistent mutation.",
+      "signal": "surviving_mutant",
+      "scope": "provisioning",
+      "status": "candidate",
+      "features": [
+        "dockerized-otclient-vps-connection"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        "M7 (provisioning)"
+      ],
+      "created": "2026-07-22T02:36:56Z",
+      "last_seen": "2026-07-22T02:36:56Z"
+    },
+    {
+      "id": "L-005",
+      "key": "surviving_mutant::assert every persisted fixture value required by the spec not just the insert statement and columns",
+      "text": "Assert every persisted fixture value required by the spec, not just the insert statement and columns.",
+      "signal": "surviving_mutant",
+      "scope": "provisioning",
+      "status": "candidate",
+      "features": [
+        "dockerized-otclient-vps-connection"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        "M4 (provisioning)"
+      ],
+      "created": "2026-07-22T02:36:56Z",
+      "last_seen": "2026-07-22T02:36:56Z"
+    },
+    {
+      "id": "L-006",
+      "key": "surviving_mutant::exercise ownership validation with an explicit owner mismatch fixture not only mode and symlink cases",
+      "text": "Exercise ownership validation with an explicit owner-mismatch fixture, not only mode and symlink cases.",
+      "signal": "surviving_mutant",
+      "scope": "secrets",
+      "status": "candidate",
+      "features": [
+        "dockerized-otclient-vps-connection"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        "M6 (secrets)"
+      ],
+      "created": "2026-07-22T02:36:56Z",
+      "last_seen": "2026-07-22T02:36:56Z"
+    },
+    {
+      "id": "L-007",
+      "key": "surviving_mutant::assert credential bearing database operations refuse execution while query logging is enabled",
+      "text": "Assert credential-bearing database operations refuse execution while query logging is enabled.",
+      "signal": "surviving_mutant",
+      "scope": "provisioning",
+      "status": "candidate",
+      "features": [
+        "dockerized-otclient-vps-connection"
+      ],
+      "recurrence": 1,
+      "harmful": 0,
+      "evidence": [
+        "M8 (provisioning)"
+      ],
+      "created": "2026-07-22T02:36:56Z",
+      "last_seen": "2026-07-22T02:36:56Z"
     }
   ]
 }

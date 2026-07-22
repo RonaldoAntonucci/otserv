@@ -109,10 +109,10 @@
 ## Handoff
 
 - **Feature**: Windows-built OTClient and First VPS Connection / `.specs/features/dockerized-otclient-vps-connection`
-- **Phase / Task**: pausada entre Specify e Design após mudança do ambiente de build
-- **Completed**: requisitos de runtime CrossOver/VPS levantados; bottle `Steam` Windows 10 auditada; viabilidade do cross-build Docker/MinGW pesquisada; pivô para build nativo Windows registrado em AD-013; guia de retomada Windows criado em `docs/windows-otclient-handoff.md`
-- **In-progress** (file:line): nenhuma implementação em andamento; `spec.md:1` está preservada como histórico e marcada para revisão
-- **Next step**: na máquina Windows, clonar com submódulos, validar os pré-requisitos do fork e revisar/reaprovar a especificação substituindo o fluxo Docker/MinGW pelo preset nativo `windows-release`; somente então iniciar Design
-- **Blockers**: ambiente Windows ainda não preparado; a especificação anterior não autoriza implementação porque sua estratégia de build foi substituída
+- **Phase / Task**: build pausado entre Specify e Design; slice independente `OTC-PROV` concluído e verificado
+- **Completed**: pivô Windows em AD-013 e guia de retomada preservados; slice de identidade ativado em `995e689`; provisionador transacional em `38ba490`; contratos reforçados em `1895531`; segredo ignorado `env/client-test.env` criado com modo `0600`; VPS contém exatamente uma conta `otserv-smoke` e um personagem ativo `Docker Scout`; primeira execução `created`, segunda `noop`; gate Docker pós-fix com 84/84 contratos; Verifier PASS em 11/11 critérios e sensor P0 com 8/8 mutações mortas
+- **In-progress** (file:line): nenhuma implementação em andamento; `.specs/features/dockerized-otclient-vps-connection/validation.md:1` registra o PASS independente do slice; a estratégia histórica de build em `spec.md:1` continua marcada para revisão
+- **Next step**: na máquina Windows, clonar com submódulos, validar os pré-requisitos do fork e revisar/reaprovar a especificação substituindo o fluxo Docker/MinGW pelo preset nativo `windows-release`; somente então iniciar Design e retomar build, instalação persistente no CrossOver e primeira conexão
+- **Blockers**: ambiente Windows ainda não preparado; a estratégia anterior de build permanece sem autorização para implementação; nenhum blocker restante no slice de identidade
 - **Uncommitted files**: nenhum após o commit deste handoff
 - **Branch**: `main`
